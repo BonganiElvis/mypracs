@@ -28,3 +28,23 @@ GPIO.output(LED1,GPIO.LOW)
 GPIO.output(LED2,GPIO.LOW)
 GPIO.output(LED3,GPIO.LOW)
 counter = 0
+#Push Button Logic 
+def buttonHandler():
+	global counter
+	if (GPIO.input(button2) == 1 and counter != 7): # incrementing the counter by 1
+		counter += 1
+		print (bin(counter)[2:].zfill(3))
+		sleep(.5)
+	if (GPIO.input(button2) == 1 and counter == 7):
+		counter = 0
+		print (bin(counter)[2:].zfill(3))
+		sleep(.5)
+	if (GPIO.input(button1) == 1 and counter != 0): #stop decrementing of inputs if 0
+		counter -= 1
+		print (bin(counter)[2:].zfill(3))
+		sleep(.5)
+	if (GPIO.input(button1) == 1 and counter == 0):
+		counter = 7
+		print (bin(counter)[2:].zfill(3))
+		sleep(.5)
+	return
