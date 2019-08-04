@@ -77,3 +77,10 @@ def ledOff(pin):
 		GPIO.output(LED3,GPIO.LOW)
 	
 	return
+try: 
+	while True:
+		buttonHandler()
+		ledLogic(counter)
+except KeyboardInterrupt:
+	GPIO.cleanup()
+		
