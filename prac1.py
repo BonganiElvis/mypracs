@@ -48,3 +48,32 @@ def buttonHandler():
 		print (bin(counter)[2:].zfill(3))
 		sleep(.5)
 	return
+#LED Logic	
+def ledLogic(c):
+	binaryString = bin(c)[2:].zfill(3) #converting an integer into a string of 0’s  and 1’s
+	for index, value in enumerate(binaryString):
+		if (value == '1'):
+			ledOn(index)
+		else:
+			ledOff(index)
+	return
+	
+def ledOn(pin):
+	if (pin == 0):
+		GPIO.output(LED1,GPIO.HIGH)
+	if (pin == 1):
+		GPIO.output(LED2,GPIO.HIGH)
+	if (pin == 2):
+		GPIO.output(LED3,GPIO.HIGH)
+
+	
+	return
+def ledOff(pin):
+	if (pin == 0):
+		GPIO.output(LED1,GPIO.LOW)
+	if (pin == 1):
+		GPIO.output(LED2,GPIO.LOW)
+	if (pin == 2):
+		GPIO.output(LED3,GPIO.LOW)
+	
+	return
